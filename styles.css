@@ -90,7 +90,7 @@ a.footer {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: darkgray;
+  background-color: rgb(255, 255, 255);
   color: white;
   text-align: center;
 }
@@ -109,7 +109,6 @@ p.background-paragraph {
   position: relative;
   float: center;
 }
-
 .video {
   width: 100%;
   height: 100%;
@@ -117,14 +116,6 @@ p.background-paragraph {
   top: 0;
   left: 0;
 }
-/* .gif {
-  width: 600px;
-  height: 338px;
-  float: center;
-  position: relative;
-  display: block;
-  margin: auto;
-} */
 .gif-container {
   position: absolute;
   top: 0;
@@ -138,15 +129,10 @@ p.background-paragraph {
   margin: auto;
 }
 .gif-container video {
-  /* Make video to at least 100% wide and tall */
   min-width: 600px; 
   min-height: 338px; 
-
-  /* Setting width & height to auto prevents the browser from stretching or squishing the video */
   width: auto;
   height: auto;
-
-  /* Center the video */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -186,5 +172,22 @@ p.background-paragraph {
 }
 #fact-text {
   text-align: center;
-
+}
+.btn-primary {
+  margin-top: 10px;
+}
+#center {
+  margin-top: 20px;
+  font-family: Lucida Console, monospace;
+  text-align: center;
+}
+hr {
+  border: none;
+  height: 1px;
+  /* Set the hr color */
+  color: #333; /* old IE */
+  background-color: #333; /* Modern Browsers */
+}
+h3 {
+  text-align: right;
 }
