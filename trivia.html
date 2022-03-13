@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<link rel='stylesheet' href='styles.css'/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
+	<head class="header">
+		<title class="header">Nate's Web Server</title>  
+    </head>
+
+	  <nav class="navbar navbar-light bg-light">
+		<a class="navbar-brand" href="#">Menu</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+			  <a class="nav-link" href="./index.html">Home</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="./aboutme.html">About me</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="./shoes.html">Shoes<span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="./argentina.html">Argentina</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="./facts.html">Cool Facts</a>
+			</li>
+            <li class="nav-item active">
+				<a class="nav-link" href="./trivia.html">Trivia<span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item dropdown">
+			  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Contact
+			  </a>
+			  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<a class="dropdown-item" href="https://www.linkedin.com/in/nate-skonnard/">LinkedIn</a>
+				<a class="dropdown-item" href="https://www.facebook.com/skonzilla">Facebook</a>
+				<a class="dropdown-item" href="https://www.instagram.com/skonzy/">Instagram</a>
+				<a class="dropdown-item" href="https://twitter.com/skonshack">Twitter</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="#">Other contact information</a>
+			  </div>
+			</li>
+		  </ul>
+		  <form class="form-inline my-2 my-lg-0">
+			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		  </form>
+		</div>
+	  </nav>
+
+      <body>
+        <div id="app">
+          <h1 id ="center">Trivia Game</h1>
+          <hr>
+          <div class="container" v-if="loaded">
+            <br>
+            <h2>{{question}}</h2>
+            <br>
+            <div v-if="type === 'multiple'">
+              <button id="button1" type="button" class="btn btn-light" v-on:click="button1Pressed">
+                {{answers[0]}}
+              </button>
+              <button id="button2" type="button" class="btn btn-light" v-on:click="button2Pressed">
+                {{answers[1]}}
+              </button>
+              <button id="button3" type="button" class="btn btn-light" v-on:click="button3Pressed">
+                {{answers[2]}}
+              </button>
+              <button id="button4" type="button" class="btn btn-light" v-on:click="button4Pressed">
+                {{answers[3]}}
+              </button>
+            </div>
+            <div v-else>
+              <button id="trueButton" type="button" class="btn btn-light" v-on:click="truePressed">
+                True
+              </button>
+              <button id="falseButton" type="button" class="btn btn-light" v-on:click="falsePressed">
+                False
+              </button>
+            </div>
+            <br>
+            <div v-if="answered && !done">
+              <button type="button" class="btn btn-primary" v-on:click="resetQuestion">
+                Next Question
+              </button>
+            </div>
+            <br>
+            <h3>Score: {{numCorrect}}/{{currentNumber}}</h3>
+            <div v-if="done">
+              <h2>{{message}}</h2>
+              <button type="button" class="btn btn-primary" v-on:click="playAgain">
+                Play Again
+              </button>
+            </div>
+    
+          </div>
+          <div v-else>
+            <button type="button" class="btn btn-primary" v-on:click="getQuestions">
+              Start
+            </button>
+          </div>
+        </div>
+    
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="/script.js"></script>
+      </body>
+
+	<div class="footer">
+		<a class="footer" href="https://github.com/skonzy/Creative-Project-2.git"><button type="button" class="btn btn-link">Git Hub Repository</button></a>
+	</div>
+</html>
